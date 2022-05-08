@@ -25,7 +25,7 @@ This requires that you have installed Docker and the docker engine is running.
 
 1. Build the Docker image
 ```shell
-wordcounter$ docker build -it word_counter .
+wordcounter$ docker build -t word_counter .
 ```
 
 2. Run the Docker image
