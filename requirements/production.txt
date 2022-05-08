@@ -1,0 +1,10 @@
+# -------------- Requirements for production --------------- #
+# PySpark
+pyspark
+psutil
+
+# Internet connection
+requests
+
+# Utils
+click
