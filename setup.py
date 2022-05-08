@@ -1,17 +1,14 @@
 from os import path
 from setuptools import setup, find_packages
 
-
-# TODO change src to actual package name
 from src import __version__
-
 
 # Project
 NAME = 'project-name'
 VERSION = __version__
 
 # Authors and maintainers
-AUTHORS = 'Aron Horvath (@arcsi1989)' # TODO
+AUTHORS = 'Aron Horvath (@arcsi1989)'
 MAINTAINER = 'Aron Horvath (@arcsi1989)'
 MAINTAINER_EMAIL = 'arcsi1989@gmail.com'
 
@@ -53,7 +50,7 @@ with open(path.join(this_directory, 'requirements/production.txt'), encoding='ut
 # Package definition
 setup(name=NAME,
       version=VERSION,
-      description='Python Package Template',  # TODO
+      description='Word Counting Package',
       url=HOMEPAGE,
       packages=find_packages(),
       author=AUTHORS,
@@ -68,7 +65,7 @@ setup(name=NAME,
       install_requires=INSTALL_REQUIREMENTS,
       entry_points={
           'console_scripts': [
-              'task2 = src.cli.cli:src_cli',  # TODO change actual package name from the 'ppt'
+              'task2 = src.cli.cli:src_cli',
           ]
       },
       include_package_data=True,

@@ -1,7 +1,0 @@
-version: "3.9"
-services:
-  template_package:
-    build: . # Where to find the Dockerfile
-    image: "word_counter"
-    environment:
-      DATA_URL: "https://s3.amazonaws.com/products-42matters/test/biographies.list.gz"

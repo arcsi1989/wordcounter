@@ -14,11 +14,12 @@ Optional: Create a virtual or conda environment and activate it.
 wordcounter$ pip install -e .
 ```
 
-2. Run the application
+2. Run the application using a provided CLI interface
 ```shell
-wordcounter$ export DATA_URL="https://s3.amazonaws.com/products-42matters/test/biographies.list.gz"
+wordcounter$ source config/code.env
 wordcounter$ task2 word-counter --output_dir <path_to_output_dir>
-```
+``` 
+Where the `<path_to_output_dir>` is an existing folder on the local computer
 
 ## Building and running a Docker image locally
 This requires that you have installed Docker and the docker engine is running.
@@ -30,9 +31,12 @@ wordcounter$ docker build -t word_counter .
 
 2. Run the Docker image
 ```shell
-# url = "https://s3.amazonaws.com/products-42matters/test/biographies.list.gz"
 # local_computer_path = Local computer path which will be mounted to the container to store the output
-wordcounter$ docker run -e DATA_URL=<url> -v <local_computer_path>:/usr/src/data word_counter
+wordcounter$ docker run --env-file config/code.env -v <local_computer_path>:/usr/src/data word_counter
 ```
-
 If the image `word_counter` has not been built yet, this will happen automatically.
+
+Both the auto-generated `output` folder as well as the folder `results` will be stored under the provided `<local_computer_path>`,
+while the former contains the original output of the PySpark, the later contains the `word_counts.json` file
+
+
