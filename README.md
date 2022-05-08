@@ -37,6 +37,6 @@ wordcounter$ docker run --env-file config/code.env -v <local_computer_path>:/usr
 If the image `word_counter` has not been built yet, this will happen automatically.
 
 Both the auto-generated `output` folder as well as the folder `results` will be stored under the provided `<local_computer_path>`,
-while the former contains the original output of the PySpark, the later contains the `word_counts.json` file
+while the former contains the original output of the PySpark, the later contains the `word_count.json` file
 
 
