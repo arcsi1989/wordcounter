@@ -35,8 +35,4 @@ wordcounter$ docker build -it word_counter .
 wordcounter$ docker run -e DATA_URL=<url> -v <local_computer_path>:/usr/src/data word_counter
 ```
 
-Or even easier. Configure the environment variables in `docker-compose.yml` and run:
-```shell
-WordCounter$ docker-compose up
-```
 If the image `word_counter` has not been built yet, this will happen automatically.

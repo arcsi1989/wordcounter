@@ -78,6 +78,8 @@ def word_counter(output_dir: str):
     print('LOG | Downloading compressed file from provided URL')
 
     url = os.getenv('DATA_URL')
+    if url is None:
+        raise ValueError("There is no 'DATA_URL environment variable defined")
     compressed_file_name = Path(url).name
     file_name = compressed_file_name[:-len(Path(url).suffix)]
     response = requests.get(url)
