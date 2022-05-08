@@ -9,7 +9,7 @@ RUN apt-get install -y software-properties-common \
 
 # java
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
-ENV INSIDE_DOCKER "true"
+ENV INSIDE_DOCKER "True"
 
 WORKDIR /usr/src/app
 

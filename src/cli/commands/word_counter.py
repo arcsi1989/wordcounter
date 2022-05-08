@@ -46,11 +46,9 @@ def combine_part_counts(path: str, file_start: str) -> Dict:
                 else:
                     word_occurences[word] = int(occurence)
 
-            # if line is empty
-            # end of file is reached
+            # if line is empty end of file is reached
             if not line:
                 break
-            # print("Line{}: {}".format(count, word))
 
         file_to_read.close()
 
@@ -84,13 +82,9 @@ def word_counter(output_dir: str):
     file_name = compressed_file_name[:-len(Path(url).suffix)]
     response = requests.get(url)
 
-    #open(f"/usr/src/data/{compressed_file_name}", "wb").write(response.content)
     open(f"{path}/{compressed_file_name}", "wb").write(response.content)
 
     print('LOG | Extracting downloaded compressed file')
-    #with gzip.open(f"/usr/src/data/{compressed_file_name}", 'rb') as f_in:
-    #    with open(f"/usr/src/data/{file_name}", 'wb') as f_out:
-    #        shutil.copyfileobj(f_in, f_out)
 
     with gzip.open(f"{path}/{compressed_file_name}", 'rb') as f_in:
         with open(f"{path}/{file_name}", 'wb') as f_out:
@@ -101,7 +95,6 @@ def word_counter(output_dir: str):
 
     # Read data from everyline of text file starting with 'BG:'  and split each line into words
     print('LOG | Reading provided file')
-    #words = sc.textFile(f"/usr/src/data/{file_name}").flatMap(
     words = sc.textFile(f"{path}/{file_name}").flatMap(
         lambda line: line.split(" ") if line.startswith("BG:") else [])
 
@@ -111,12 +104,9 @@ def word_counter(output_dir: str):
 
     # Save the counts to output folder
     print('LOG | Save the counts to output')
-    #wordCounts.saveAsTextFile("/usr/src/data/output/")
     wordCounts.saveAsTextFile(f"{path}/output/")
 
     print('LOG | Fuse the counts and save')
-    #with open("/usr/src/data/results/word_count.json", "w") as outfile:
-    #    json.dump(combine_part_counts(path='/usr/src/data/output', file_start='part'), outfile)
 
     result_path = f"{path}/results"
     isExist = os.path.exists(result_path)
